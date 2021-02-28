@@ -8,3 +8,10 @@ psql postgres admin -- login to new user
 Password: admin@123
 CREATE DATABASE node_sequelize;
 GRANT ALL PRIVILEGES ON DATABASE node_sequelize To admin;
+
+// For c creating models
+sequelize model:create --name Classroom --attributes class_name:string
+sequelize model:create --name Students --attributes classroom_id:integer,student_name:string
+sequelize model:create --name Lecturer --attributes Lecturer_name:string
+sequelize model:create --name Course --attributes Lecturer_id:integer,Course_name:string
+sequelize model:create --name StudentCourse --attributes student_id:integer,course_id:integer
