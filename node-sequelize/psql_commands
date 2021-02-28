@@ -1,0 +1,10 @@
+In cmd: 
+: psql -U postgres
+: CREATE ROLE admin WITH LOGIN PASSWORD 'admin123';     -- for creating new user
+:  ALTER ROLE admin CREATEDB; 
+: \q -- for quit.
+
+psql postgres admin -- login to new user
+Password: admin@123
+CREATE DATABASE node_sequelize;
+GRANT ALL PRIVILEGES ON DATABASE node_sequelize To admin;
