@@ -4,6 +4,7 @@ var router = express.Router();
 const classroomController = require('../controllers').classroom;
 const studentController = require('../controllers').student;
 const lecturerController = require('../controllers').lecturer;
+const courseController = require('../controllers').course;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
