@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const classroomController = require('../controllers').classroom;
+const studentController = require('../controllers').student;
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
