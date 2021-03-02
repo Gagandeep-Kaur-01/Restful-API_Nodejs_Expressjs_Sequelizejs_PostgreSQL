@@ -1,4 +1,4 @@
-const Student = require('../models').Student;
+const Student = require('../models').Students;
 const Classroom = require('../models').Classroom;
 const Course = require('../models').Course;
 
@@ -51,6 +51,36 @@ module.exports = {
         student_name: req.body.student_name,
       })
       .then((student) => res.status(201).send(student))
+      .catch((error) => res.status(400).send(error));
+  },
+
+  addCourse(req, res) {
+    return Student
+      .findByPk(req.body.student_id, {
+        include: [{
+          model: Classroom,
+          as: 'classroom'
+        },{
+          model: Course,
+          as: 'courses'
+        }],
+      })
+      .then((student) => {
+        if (!student) {
+          return res.status(404).send({
+            message: 'Student Not Found',
+          });
+        }
+        Course.findByPk(req.body.course_id).then((course) => {
+          if (!course) {
+            return res.status(404).send({
+              message: 'Course Not Found',
+            });
+          }
+          student.addCourse(course);
+          return res.status(200).send(student);
+        })
+      })
       .catch((error) => res.status(400).send(error));
   },
 
