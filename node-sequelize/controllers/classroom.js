@@ -1,5 +1,5 @@
 const Classroom = require('../models').Classroom;
-const Student = require('../models').Student;
+const Student = require('../models').Students;
 
 module.exports = {
   list(req, res) {
