@@ -32,4 +32,11 @@ router.post('/api/lecturer', lecturerController.add);
 router.put('/api/lecturer/:id', lecturerController.update);
 router.delete('/api/lecturer/:id', lecturerController.delete);
 
+/* Course Router */
+router.get('/api/course', courseController.list);
+router.get('/api/course/:id', courseController.getById);
+router.post('/api/course', courseController.add);
+router.put('/api/course/:id', courseController.update);
+router.delete('/api/course/:id', courseController.delete);
+
 module.exports = router;
